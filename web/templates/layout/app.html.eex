@@ -28,7 +28,6 @@
     </ul>
     </nav>
     <div class="measure-wide center pa4">
-
       <p role="alert"><%= get_flash(@conn, :info) %></p>
       <p role="alert"><%= get_flash(@conn, :error) %></p>
 
