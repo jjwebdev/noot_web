@@ -43,7 +43,8 @@ exports.config = {
     watched: [
       "web/static",
       "test/static",
-      "web/elm"
+      "web/elm",
+      "node_modules/tachyons/src"
     ],
 
     // Where to compile files to
@@ -56,6 +57,14 @@ exports.config = {
       elmFolder: "web/elm",
       mainModules: ["App.elm"],
       outputFolder: "../static/vendor"
+    },
+    sass: {
+      modules: true,
+      sourceMapEmbed: true,
+      includePaths: ['node_modules/tachyons/src/'],
+      options: {
+        allowCache: true
+      }
     },
     babel: {
       // Do not use ES6 compiler in vendor code
