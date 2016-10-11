@@ -30,20 +30,20 @@ defmodule Noot.SessionControllerTest do
     conn = post conn, session_path(conn, :create), user: %{username: "jk", password: "wrong"}
     refute get_session(conn, :current_user)
     assert get_flash(conn, :error) == "Sorry, we didn't recognise that username and password combination!"
-    assert redirected_to(conn) == page_path(conn, :index)
+    assert redirected_to(conn) == session_path(conn, :new)
   end
 
   test "does not create a session if user does not exist", %{conn: conn} do
     conn = post conn, session_path(conn, :create), user: %{username: "wrong", password: "supersecret"}
     assert get_flash(conn, :error) == "Sorry, we didn't recognise that username and password combination!"
-    assert redirected_to(conn) == page_path(conn, :index)
+    assert redirected_to(conn) == session_path(conn, :new)
   end
 
   test "deletes the user session", %{conn: conn} do
     user = Repo.get_by(User, %{username: "jk"})
     conn = delete conn, session_path(conn, :delete, user)
     refute get_session(conn, :current_user)
-    assert get_flash(conn, :info) == "Logged out successfully!"
+    assert get_flash(conn, :info) == "Successfully logged out!"
     assert redirected_to(conn) == page_path(conn, :index)
   end
 end
