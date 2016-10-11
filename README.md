@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jjwebdev/noot.svg?branch=master)](https://travis-ci.org/jjwebdev/noot)
+[![Build Status](https://travis-ci.org/jjwebdev/noot.svg?branch=develop)](https://travis-ci.org/jjwebdev/noot)
 
 # Noot
 
