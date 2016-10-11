@@ -36,8 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :noot, Noot.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "develop",
+  password: "develop",
   database: "noot_dev",
   hostname: "localhost",
   pool_size: 10
