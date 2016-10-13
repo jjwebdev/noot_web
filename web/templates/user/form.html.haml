@@ -3,20 +3,16 @@
     .alert.alert-danger
       %p Oops, something went wrong! Please check the errors below.
   .form-group
-    = label f, :username, class: "control-label"
-    = text_input f, :username, class: "form-control"
+    = text_input f, :username, class: "form-control", placeholder: "username"
     = error_tag f, :username
   .form-group
-    = label f, :email, class: "control-label"
-    = text_input f, :email, class: "form-control"
+    = text_input f, :email, class: "form-control", placeholder: "email"
     = error_tag f, :email
   .form-group
-    = label f, :password, "Password", class: "control-label"
-    = password_input f, :password, class: "form-control"
+    = password_input f, :password, class: "form-control", placeholder: "password"
     = error_tag f, :password
   .form-group
-    = label f, :password_confirmation, "Password Confirmation", class: "control-label"
-    = password_input f, :password_confirmation, class: "form-control"
+    = password_input f, :password_confirmation, class: "form-control", placeholder: "confirm password"
     = error_tag f, :password_confirmation
   .form-group
-    = submit "Submit", class: "btn btn-primary"
+    = submit "Submit", class: "pa3 f4 br2 bg-white ba b--black center db w-third mt4"

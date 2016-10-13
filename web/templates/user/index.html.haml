@@ -1,17 +1,17 @@
 %h2 Listing users
-  %table.table
-    %thead
+%table.table
+  %thead
+    %tr
+      %th Username
+      %th Email
+      %th Actions
+  %tbody
+    - for user <- @users do
       %tr
-        %th Username
-        %th Email
-        %th.text-right Actions
-    %tbody
-      - for user <- @users do
-        %tr
-          %td= user.username
-          %td= user.email
-          %td.text-right
-            = link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs"
-            = link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs"
-            = link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
-    = link "New user", to: user_path(@conn, :new)
+        %td= user.username
+        %td= user.email
+        %td.w-100
+          = link "Show", to: user_path(@conn, :show, user), class: "ba br2 w-25 mh1 fl tc link dim black"
+          = link "Edit", to: user_path(@conn, :edit, user), class: "ba br2 w-25 mh1 fl tc link dim black"
+          = link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "ba br2 w-25 mh1 fl tc link dim black"
+  = link "New user", to: user_path(@conn, :new)
