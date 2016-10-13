@@ -1,0 +1,4 @@
+%h2.tc Edit user
+= render "form.html", changeset: @changeset, action: user_path(@conn, :update, @user)
+.center.w-50.tc
+  = link "Back", to: user_path(@conn, :index), class: "dim link black"

@@ -13,18 +13,16 @@ use Mix.Config
 # which you typically run after static files are built.
 config :noot, Noot.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "localhost", port: {:system, "PORT"}],
-  cache_static_manifest: "priv/static/manifest.json",
-  server: true,
-  root: ".",
-  version: Mix.Project.config[:version]
+  url: [host: "noot-w.herokuapp.com", port: 80],
+  cache_static_manifest: "priv/static/manifest.json"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :noot, Noot.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: false
+  ssl: true
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -65,13 +63,13 @@ config :comeonin, bcrypt_log_rounds: 14
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
 #
-#    config :noot, Noot.Endpoint, server: true
+#     config :noot, Noot.Endpoint, server: true
 #
 # You will also need to set the application root to `.` in order
 # for the new static assets to be served after a hot upgrade:
 #
-#    config :noot, Noot.Endpoint, root: "."
+#     config :noot, Noot.Endpoint, root: "."
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"

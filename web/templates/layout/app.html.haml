@@ -1,0 +1,27 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge", "http-equiv": "X-UA-Compatible"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    %meta{content: "", name: "description"}
+    %meta{content: "", name: "author"}
+    %title Hello Noot!
+    %link{href: "#{static_path(@conn, "/css/app.css")}", rel: "stylesheet"}
+  %body.avenir
+    %nav.pa3.pa4-ns
+      %a.link.dim.black.b.f6.f5-ns.dib.mr3{href: "/", title: "Home"} Nootr
+      %a.link.dim.gray.f6.f5-ns.dib.mr3{href: "http://www.phoenixframework.org/docs", title: "About"} About
+      - if user = current_user(@conn) do
+        .dim.link.dim.gray.f6.f5-ns.dib.mr3
+          Logged in as
+          %strong= user.username
+        = link "Logout", to: session_path(@conn, :delete, user.id), method: :delete, class: "link dim gray f6 f5-ns dib mr3"
+      - else
+        = link "Login", to: session_path(@conn, :new), class: "link dim gray f6 f5-ns dib mr3"
+    .measure-wide.center.pa4
+      %p{role: "alert"}= get_flash(@conn, :info)
+      %p{role: "alert"}= get_flash(@conn, :error)
+      %main{role: "main"}= render @view_module, @view_template, assigns
+    %script{src: "#{static_path(@conn, "/js/app.js")}"}
+    %script{src: "#{static_path(@conn, "/js/vendor.js")}"}

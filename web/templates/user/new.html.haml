@@ -1,0 +1,4 @@
+%h2.tc New user
+= render "form.html", changeset: @changeset, action: user_path(@conn, :create)
+.center.w-50.tc
+  = link "Back", to: user_path(@conn, :index), class: "dim link black"
