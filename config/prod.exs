@@ -65,12 +65,12 @@ config :comeonin, bcrypt_log_rounds: 14
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
 #
-    config :noot, Noot.Endpoint, server: true
+#    config :noot, Noot.Endpoint, server: true
 #
 # You will also need to set the application root to `.` in order
 # for the new static assets to be served after a hot upgrade:
 #
-    config :noot, Noot.Endpoint, root: "."
+#    config :noot, Noot.Endpoint, root: "."
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.

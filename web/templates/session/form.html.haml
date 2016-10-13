@@ -1,0 +1,15 @@
+- form_for @changeset, @action, fn f ->
+  - if f.errors != [] do
+    .alert.alert-danger
+      %p Oops, something went wrong! Please check the errors below:
+      %ul
+        - for {attr, message} <- f.errors do
+          %li
+            = humanize(attr)
+            = message
+  .form-group
+    = text_input f, :username, class: "form-control", placeholder: "Username"
+  .form-group
+    = password_input f, :password, class: "form-control", placeholder: "Password"
+  .form-group
+    = submit "Submit", class: "pa3 f4 br2 bg-white ba b--black center db w-third"
