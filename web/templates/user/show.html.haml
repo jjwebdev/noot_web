@@ -6,8 +6,5 @@
   %li
     %strong Email:
     = @user.email
-  %li
-    %strong Password digest:
-    = @user.password_digest
 = link "Edit", to: user_path(@conn, :edit, @user)
 = link "Back", to: user_path(@conn, :index)

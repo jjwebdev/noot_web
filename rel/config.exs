@@ -16,13 +16,14 @@ use Mix.Releases.Config,
 environment :dev do
   set dev_mode: true
   set include_erts: false
-  set cookie: :"JFYyyN/w(k~X4~~eDY`}V{PU|/V_BNF^y=u4O{I*Ez`A~FYxMXYGZ/q_edh22[L+"
+  set cookie: :test
 end
 
 environment :prod do
+  cookie = String.to_atom("#{ Base.encode64(:crypto.hash(:sha256, :crypto.strong_rand_bytes(32))) }")
   set include_erts: true
   set include_src: false
-  set cookie: :"JFYyyN/w(k~X4~~eDY`}V{PU|/V_BNF^y=u4O{I*Ez`A~FYxMXYGZ/q_edh22[L+"
+  set cookie: cookie
 end
 
 # You may define one or more releases in this file.
