@@ -9,18 +9,18 @@
     %title Hello Noot!
     %link{href: "#{static_path(@conn, "/css/app.css")}", rel: "stylesheet"}
   %body.avenir
-    %nav.pa3.pa4-ns
+    %nav.pa3.pa4-ns.mw7.center
       %div.fl
-        %a.link.dim.black.b.f6.f3-ns.dib.mr3{href: "/", title: "Home"} Nootr
-        %a.link.dim.gray.f6.f3-ns.dib.mr3{href: "http://www.phoenixframework.org/docs", title: "About"} About
+        %a.link.dim.black.b.f5.dib.mr3{href: "/", title: "Home"} Nootr
+        %a.link.dim.gray.f5.dib.mr3{href: "http://www.phoenixframework.org/docs", title: "About"} About
       %div.fr
         - if user = current_user(@conn) do
           -# %p.dim.link.dim.gray.f6.f3-ns.dib.mr3
             Logged in as
             %strong= user.username
-          = link "Logout", to: session_path(@conn, :delete, user.id), method: :delete, class: "link dim gray f6 f3-ns dib mr3 fr light-red"
+          = link "Logout", to: session_path(@conn, :delete, user.id), method: :delete, class: "link dim gray f5 dib mr3 fr light-red"
         - else
-          = link "Login", to: session_path(@conn, :new), class: "link dim gray f6 f3-ns dib mr3 fr green"
+          = link "Login", to: session_path(@conn, :new), class: "link dim gray f5 dib mr3 fr green"
     .center.pa4
       %p.blue.tc= get_flash(@conn, :info)
       %p.red.tc= get_flash(@conn, :error)

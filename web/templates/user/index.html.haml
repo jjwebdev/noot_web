@@ -9,10 +9,10 @@
     %tbody
       - for user <- @users do
         %tr.striped--near-white
-          %td.w-20= user.username
-          %td.w-40= user.email
-          %td.w-50
-            = link "Show", to: user_path(@conn, :show, user), class: "cf ba br1 w-30 fl tc link black dt ma1"
-            = link "Edit", to: user_path(@conn, :edit, user), class: "cf ba br1 w-30 fl tc link black dt ma1 bg-light-yellow"
-            = link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "cf ba br1 w-30 fl tc link black dt ma1 bg-light-red"
-    = link "New user", to: user_path(@conn, :new), class: "ba br1 w-25 mh1 fr tc link black bg-light-green"
+          %td.tc= user.username
+          %td.tc= user.email
+          %td.w5
+            = link "Show", to: user_path(@conn, :show, user), class: "cf ba br1 w3 fl tc link black ma1"
+            = link "Edit", to: user_path(@conn, :edit, user), class: "cf ba br1 w3 fl tc link black ma1 bg-light-yellow"
+            = link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "cf ba br1 w3 fl tc link black ma1 bg-light-red"
+    = link "New user", to: user_path(@conn, :new), class: "ba br1 w-25 mh1 fr tc link black bg-light-green pa2"
