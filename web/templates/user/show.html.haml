@@ -1,10 +1,10 @@
-%h2 Show user
-%ul
-  %li
+.measure-narrow.center
+  %h2 Show user
+  %p
     %strong Username:
     = @user.username
-  %li
+  %p
     %strong Email:
     = @user.email
-= link "Edit", to: user_path(@conn, :edit, @user)
-= link "Back", to: user_path(@conn, :index)
+  = link "Edit", to: user_path(@conn, :edit, @user), class: "ba br1 w4 mh1 fl tc link black bg-light-yellow"
+  = link "Back", to: user_path(@conn, :index), class: "ba br1 w4 mh1 fl tc link black"
