@@ -30,17 +30,17 @@ defmodule Noot.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.0"},
+    [{:cowboy, "~> 1.0"},
+     {:comeonin, "~> 2.3"},
+     {:distillery, "~> 0.10"},
+     {:gettext, "~> 0.11"},
+     {:phoenix, "~> 1.2.0"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:phoenix_haml, "~> 0.2.1"},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 2.3"},
-     {:distillery, "~> 0.10"}]
+     {:phoenix_haml, "~> 0.2.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

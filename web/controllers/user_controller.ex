@@ -19,7 +19,7 @@ defmodule Noot.UserController do
     case Repo.insert(changeset) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
+        |> put_flash(:info, "Account successfully registered!")
         |> redirect(to: user_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)

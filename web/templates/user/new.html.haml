@@ -1,5 +1,5 @@
 .measure-wide.center
-  %h2.tc New user
+  %h2.tc New account registration
   = render "form.html", changeset: @changeset, action: user_path(@conn, :create)
-  .center.w-50.tc
+  .center.w-50.tc.ma2
     = link "Back", to: user_path(@conn, :index), class: "dim link black"
