@@ -19,6 +19,7 @@
         = link "Logout", to: session_path(@conn, :delete, user.id), method: :delete, class: "link dim gray f6 f5-ns dib mr3"
       - else
         = link "Login", to: session_path(@conn, :new), class: "link dim gray f6 f5-ns dib mr3"
+        = link "Register", to: user_path(@conn, :new), class: "link dim gray f6 f5-ns dib mr3"
     .measure-wide.center.pa4
       %p{role: "alert"}= get_flash(@conn, :info)
       %p{role: "alert"}= get_flash(@conn, :error)
