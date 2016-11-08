@@ -1,7 +1,8 @@
 defmodule Noot.UserController do
   use Noot.Web, :controller
-
   alias Noot.User
+  plug Guardian.Plug.EnsureAuthenticated
+
 
   def index(conn, _params) do
     users = Repo.all(User)

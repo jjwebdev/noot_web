@@ -19,6 +19,7 @@ defmodule Noot.SessionController do
 
   def delete(conn, _params) do
     conn
+    |> Guardian.Plug.sign_out
     |> delete_session(:current_user)
     |> put_flash(:info, "Successfully logged out!")
     |> redirect(to: page_path(conn, :index))
@@ -31,6 +32,7 @@ defmodule Noot.SessionController do
   defp sign_in(user, password, conn) do
     if checkpw(password, user.password_digest) do
       conn
+      |> Guardian.Plug.sign_in(user)
       |> put_session(:current_user, %{id: user.id, username: user.username})
       |> put_flash(:info, "Successfully logged in!")
       |> redirect(to: page_path(conn, :index))

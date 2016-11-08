@@ -1,6 +1,11 @@
 defmodule Noot.Router do
   use Noot.Web, :router
 
+  pipeline :browser_session do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -14,7 +19,7 @@ defmodule Noot.Router do
   end
 
   scope "/", Noot do
-    pipe_through :browser # Use the default browser stack
+    pipe_through [:browser, :browser_session] # Use the default browser stack
 
     get "/", PageController, :index
     resources "/users", UserController

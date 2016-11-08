@@ -34,6 +34,7 @@ defmodule Noot.Mixfile do
      {:comeonin, "~> 2.3"},
      {:distillery, "~> 0.10"},
      {:gettext, "~> 0.11"},
+     {:guardian, "~> 0.13.0"},
      {:phoenix, "~> 1.2.0"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
