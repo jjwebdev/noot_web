@@ -15,7 +15,8 @@ defmodule Noot.Router do
   end
 
   pipeline :require_login do
-    plug Guardian.Plug.EnsureAuthenticated, handler: Noot.GuardianErrorHandler
+    plug Guardian.Plug.EnsureAuthenticated, handler: Noot.Handler.GuardianErrorHandler
+    plug Noot.Plug.GuardianCanaryBridge
   end
 
   pipeline :api do

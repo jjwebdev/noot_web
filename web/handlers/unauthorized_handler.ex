@@ -1,4 +1,4 @@
-defmodule Noot.GuardianErrorHandler do
+defmodule Noot.Handler.GuardianErrorHandler do
   import Noot.Router.Helpers
 
   def unauthenticated(conn, _params) do
