@@ -14,6 +14,10 @@ defmodule Noot.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :require_login do
+    plug Guardian.Plug.EnsureAuthenticated, handler: Noot.GuardianErrorHandler
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -22,8 +26,13 @@ defmodule Noot.Router do
     pipe_through [:browser, :browser_session] # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/users", UserController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/users", UserController, only: [:new, :create, :show]
+  end
+
+  scope "/", Noot do
+    pipe_through [:browser, :browser_session, :require_login]
+    resources "/users", UserController, only: [:index, :delete, :edit, :update]
   end
 
   # Other scopes may use custom stacks.
