@@ -1,5 +1,6 @@
 defmodule Noot.UserControllerTest do
   use Noot.ConnCase
+  import Noot.Factory
 
   alias Noot.User
   @valid_create_attrs %{
@@ -45,8 +46,10 @@ defmodule Noot.UserControllerTest do
   end
 
   test "renders form for editing chosen resource", %{conn: conn} do
-    user = Repo.insert! %User{}
-    conn = get conn, user_path(conn, :edit, user)
+    user = insert(:user)
+    sign_in(conn, user)
+    editing_user = Repo.insert! %User{}
+    conn = get conn, user_path(conn, :edit, editing_user)
     assert html_response(conn, 200) =~ "Edit user"
   end
 

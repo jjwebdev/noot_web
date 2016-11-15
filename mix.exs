@@ -19,7 +19,7 @@ defmodule Noot.Mixfile do
   def application do
     [mod: {Noot, []},
      applications: [:mix, :phoenix_haml, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :ex_machina]]
   end
 
   # Specifies which paths to compile per environment.
@@ -33,6 +33,7 @@ defmodule Noot.Mixfile do
     [{:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.3"},
      {:distillery, "~> 0.10"},
+     {:ex_machina, "~> 1.0"},
      {:gettext, "~> 0.11"},
      {:guardian, "~> 0.13.0"},
      {:phoenix, "~> 1.2.0"},

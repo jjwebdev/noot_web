@@ -29,6 +29,15 @@ defmodule Noot.ConnCase do
 
       # The default endpoint for testing
       @endpoint Noot.Endpoint
+
+      def sign_in(conn, user) do
+        conn
+        |> bypass_through(Noot.Router, :browser)
+        |> get("/")
+        |> put_session(:current_user, user.id)
+        |> send_resp(:ok, "")
+        |> recycle()
+      end
     end
   end
 
